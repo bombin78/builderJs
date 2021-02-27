@@ -1,6 +1,8 @@
+import * as $ from 'jquery'; 
+import 'popper.js';
+import 'bootstrap';
 import {model} from '@/model'; 
 import {App} from '@/classes/app'; 
-import '@/styles/main.css';
-import '@/styles/scss.scss';
+import '@/scss/main.scss';
 
 new App(model).init();
