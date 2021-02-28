@@ -1,13 +1,5 @@
-$border: 1px solid #ccc;
+$theme-colors: (
+    "broun": #b15a34,
+);
 
-.card {
-    padding: 1rem;
-    border-radius: 5px;
-    margin-top: 1rem;
-    border: $border;
-
-    h2 {
-        text-align: center;
-        color: darkred;
-    }
-}
+@import "node_modules/bootstrap/scss/bootstrap";
