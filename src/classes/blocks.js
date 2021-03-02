@@ -1,6 +1,7 @@
-import {row, col, css} from '@/utils';
+import {form, input, button, row, col, css} from '@/utils';
 
 class Block {
+    
     constructor(value, options) {
         this.value = value;
         this.options = options;
@@ -8,6 +9,52 @@ class Block {
 
     toHtml() {
         throw new Error('Метод toHtml должен быть реализован');
+    }
+}
+
+class ClassesBlock {
+
+    constructor(id, classes, options) {
+        this.id = id;
+        this.classes = classes;
+        this.options = options;
+    }
+
+    toHtml() {
+        throw new Error('Метод toHtml должен быть реализован');
+    }
+}
+
+class ValueBlock extends ClassesBlock {
+
+    constructor(id, classes, value, options) {
+        super(id, classes, options);
+        this.value = value;
+    }
+}
+
+class ItemsBlock extends ClassesBlock {
+
+    constructor(id, classes, items, options) {
+        super(id, classes, options);
+        this.items = items;
+    }
+}
+
+export class SearchBlock extends ValueBlock {
+    
+    constructor({classes, options} = params) {
+        super(12, classes, {}, options);
+    }
+
+    toHtml() {
+        const {inputClasses, btnClasses, styles} = this.options;
+        const html = [
+                input(inputClasses),
+                button(btnClasses),
+            ].join('');
+
+        return form(html, this.classes, css(styles));
     }
 }
 

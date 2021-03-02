@@ -1,3 +1,16 @@
+export function form(content='', classes='', styles = '') {
+    return  `<form class="${classes}" style="${styles}">${content}</form>`;
+}
+
+export function input(inputClasses) {
+    return  `<input type="text" class="${inputClasses}" placeholder="Search" arial-label="Search">`;
+}
+
+export function button(btnClasses) {
+    return  `<button class="${btnClasses}">Search</button>`;
+}
+
+
 export function row(content, styles = '') {
     return `<div class="row" style="${styles}">${content}</div>`;
 }
