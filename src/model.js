@@ -1,7 +1,51 @@
-import {SearchBlock, TitleBlock, TextBlock, ColumnsBlock, ImageBlock} from './classes/blocks';
+import {NavbarNavBlock, LinkBlock, LinkToModalBlock, SearchBlock, TitleBlock, TextBlock, ColumnsBlock, ImageBlock} from './classes/blocks';
 
 export const model = [
-
+    new NavbarNavBlock({
+        classes: 'navbar-nav mr-auto',
+        items: [
+            {
+                classes: 'nav-item active',
+                value: new LinkBlock({
+                    classes: 'nav-link',
+                    href: '#',
+                    title: 'Home',
+                }).toHtml(),
+            },
+            {
+                classes: 'nav-item',
+                value: new LinkBlock({
+                    classes: 'nav-link',
+                    href: '#',
+                    title: 'Page1',
+                }).toHtml(),
+            },
+            {
+                classes: 'nav-item',
+                value: new LinkBlock({
+                    classes: 'nav-link',
+                    href: '#',
+                    title: 'Page2',
+                }).toHtml(),
+            },
+            {
+                classes: 'nav-item',
+                value: new LinkToModalBlock({
+                    classes: 'nav-link',
+                    title: 'Log in',
+                    dataTarget: '#exampleModal',
+                }).toHtml(),
+            },
+            {
+                classes: 'nav-item',
+                value: new LinkToModalBlock({
+                    classes: 'nav-link',
+                    title: 'ModalLg',
+                    dataTarget: '#exampleModalLg',
+                }).toHtml(),
+            },
+        ],
+    }),
     new SearchBlock({
         classes: 'form-inline my-2 my-lg-0',
         options: {

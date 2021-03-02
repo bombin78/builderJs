@@ -1,4 +1,4 @@
-import {form, input, button, row, col, css} from '@/utils';
+import {ul, link, linkToModal, form, input, button, row, col, css} from '@/utils';
 
 class Block {
     
@@ -38,6 +38,42 @@ class ItemsBlock extends ClassesBlock {
     constructor(id, classes, items, options) {
         super(id, classes, options);
         this.items = items;
+    }
+}
+
+export class NavbarNavBlock extends ItemsBlock {
+
+    constructor({classes, items} = params) {
+        super(12, classes, items, {});
+    }
+
+    toHtml() {
+        return ul(this.items, this.classes);
+    }
+}
+
+export class LinkBlock extends ValueBlock {
+    
+    constructor({classes, href = '#', title = ''} = params) {
+        super(12, classes, title, {});
+        this.href = href;
+        this.toHtml= this.toHtml.bind(this);
+    }
+
+    toHtml() {
+        return link(this.value, this.classes, this.href);
+    }
+}
+
+export class LinkToModalBlock extends ValueBlock {
+    
+    constructor({classes, dataTarget = '', title = ''} = params) {
+        super(12, classes, title, {});
+        this.dataTarget = dataTarget;
+    }
+
+    toHtml() {
+        return linkToModal(this.value, this.classes, this.dataTarget);
     }
 }
 

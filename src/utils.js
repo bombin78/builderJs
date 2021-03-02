@@ -1,3 +1,20 @@
+export function ul(items=[], classes='', styles = '') {
+    const content = items.map(item => `<li class="${item.classes}">${item.value}</li>`).join('');
+    return  `<ul class="${classes}" style="${styles}">${content}</ul>`;
+}
+
+export function link(content='', classes='', href, styles = '') {
+    return  `<a href="${href}" class="${classes}">${content}</a>`;
+}
+
+export function linkToModal(content='', classes='', dataTarget, styles = '') {
+    return  `
+        <a href="#" class="${classes}" style="${styles}" data-toggle="modal" data-target="${dataTarget}">
+            ${content}
+        </a>
+    `;
+}
+
 export function form(content='', classes='', styles = '') {
     return  `<form class="${classes}" style="${styles}">${content}</form>`;
 }
