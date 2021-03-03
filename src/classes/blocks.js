@@ -1,16 +1,4 @@
-import {ul, link, linkToModal, form, input, button, row, col, css} from '@/utils';
-
-class Block {
-    
-    constructor(value, options) {
-        this.value = value;
-        this.options = options;
-    }
-
-    toHtml() {
-        throw new Error('Метод toHtml должен быть реализован');
-    }
-}
+import {row, col, css} from '@/utils';
 
 class ClassesBlock {
 
@@ -25,7 +13,7 @@ class ClassesBlock {
     }
 }
 
-class ValueBlock extends ClassesBlock {
+export class ValueBlock extends ClassesBlock {
 
     constructor(id, classes, value, options) {
         super(id, classes, options);
@@ -33,7 +21,7 @@ class ValueBlock extends ClassesBlock {
     }
 }
 
-class ItemsBlock extends ClassesBlock {
+export class ItemsBlock extends ClassesBlock {
 
     constructor(id, classes, items, options) {
         super(id, classes, options);
@@ -41,56 +29,17 @@ class ItemsBlock extends ClassesBlock {
     }
 }
 
-export class NavbarNavBlock extends ItemsBlock {
+//-----------------------------------------------
 
-    constructor({classes, items} = params) {
-        super(12, classes, items, {});
-    }
-
-    toHtml() {
-        return ul(this.items, this.classes);
-    }
-}
-
-export class LinkBlock extends ValueBlock {
+class Block {
     
-    constructor({classes, href = '#', title = ''} = params) {
-        super(12, classes, title, {});
-        this.href = href;
-        this.toHtml= this.toHtml.bind(this);
+    constructor(value, options) {
+        this.value = value;
+        this.options = options;
     }
 
     toHtml() {
-        return link(this.value, this.classes, this.href);
-    }
-}
-
-export class LinkToModalBlock extends ValueBlock {
-    
-    constructor({classes, dataTarget = '', title = ''} = params) {
-        super(12, classes, title, {});
-        this.dataTarget = dataTarget;
-    }
-
-    toHtml() {
-        return linkToModal(this.value, this.classes, this.dataTarget);
-    }
-}
-
-export class SearchBlock extends ValueBlock {
-    
-    constructor({classes, options} = params) {
-        super(12, classes, {}, options);
-    }
-
-    toHtml() {
-        const {inputClasses, btnClasses, styles} = this.options;
-        const html = [
-                input(inputClasses),
-                button(btnClasses),
-            ].join('');
-
-        return form(html, this.classes, css(styles));
+        throw new Error('Метод toHtml должен быть реализован');
     }
 }
 

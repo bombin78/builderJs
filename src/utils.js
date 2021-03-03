@@ -27,7 +27,15 @@ export function button(btnClasses) {
     return  `<button class="${btnClasses}">Search</button>`;
 }
 
+export function div(id, items=[], classes='', styles = '') {
+    const content = items.map(item => item).join('');
+    return  `<div class="${classes}" id="${id}">${content}</div>`;
+}
 
+
+
+
+//----------------------------------------------------------------------------------------------
 export function row(content, styles = '') {
     return `<div class="row" style="${styles}">${content}</div>`;
 }

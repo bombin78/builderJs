@@ -1,57 +1,74 @@
-import {NavbarNavBlock, LinkBlock, LinkToModalBlock, SearchBlock, TitleBlock, TextBlock, ColumnsBlock, ImageBlock} from './classes/blocks';
+import {NavbarBlock} from './components/NavbarBlock';
+import {NavbarCollapseBlock} from './components/NavbarCollapseBlock';
+import {NavbarNavBlock} from './components/NavbarNavBlock';
+import {LinkBlock} from './components/LinkBlock';
+import {LinkToModalBlock} from './components/LinkToModalBlock';
+import {SearchBlock} from './components/SearchBlock';
+//import {TitleBlock, TextBlock, ColumnsBlock, ImageBlock} from './classes/blocks';
 
 export const model = [
-    new NavbarNavBlock({
-        classes: 'navbar-nav mr-auto',
+    new NavbarBlock({
+        classes: 'navbar navbar-expand-lg navbar-dark bg-dark sticky-top',
         items: [
-            {
-                classes: 'nav-item active',
-                value: new LinkBlock({
-                    classes: 'nav-link',
-                    href: '#',
-                    title: 'Home',
-                }).toHtml(),
-            },
-            {
-                classes: 'nav-item',
-                value: new LinkBlock({
-                    classes: 'nav-link',
-                    href: '#',
-                    title: 'Page1',
-                }).toHtml(),
-            },
-            {
-                classes: 'nav-item',
-                value: new LinkBlock({
-                    classes: 'nav-link',
-                    href: '#',
-                    title: 'Page2',
-                }).toHtml(),
-            },
-            {
-                classes: 'nav-item',
-                value: new LinkToModalBlock({
-                    classes: 'nav-link',
-                    title: 'Log in',
-                    dataTarget: '#exampleModal',
-                }).toHtml(),
-            },
-            {
-                classes: 'nav-item',
-                value: new LinkToModalBlock({
-                    classes: 'nav-link',
-                    title: 'ModalLg',
-                    dataTarget: '#exampleModalLg',
-                }).toHtml(),
-            },
+            new NavbarCollapseBlock({
+                id: 'navbarSupportedContent',
+                classes: 'collapse navbar-collapse',
+                items: [
+                    new NavbarNavBlock({
+                        classes: 'navbar-nav mr-auto',
+                        items: [
+                            {
+                                classes: 'nav-item active',
+                                value: new LinkBlock({
+                                    classes: 'nav-link',
+                                    href: '#',
+                                    title: 'Home',
+                                }).toHtml(),
+                            },
+                            {
+                                classes: 'nav-item',
+                                value: new LinkBlock({
+                                    classes: 'nav-link',
+                                    href: '#',
+                                    title: 'Page1',
+                                }).toHtml(),
+                            },
+                            {
+                                classes: 'nav-item',
+                                value: new LinkBlock({
+                                    classes: 'nav-link',
+                                    href: '#',
+                                    title: 'Page2',
+                                }).toHtml(),
+                            },
+                            {
+                                classes: 'nav-item',
+                                value: new LinkToModalBlock({
+                                    classes: 'nav-link',
+                                    title: 'Log in',
+                                    dataTarget: '#exampleModal',
+                                }).toHtml(),
+                            },
+                            {
+                                classes: 'nav-item',
+                                value: new LinkToModalBlock({
+                                    classes: 'nav-link',
+                                    title: 'ModalLg',
+                                    dataTarget: '#exampleModalLg',
+                                }).toHtml(),
+                            },
+                        ],
+                    }).toHtml(),
+                    new SearchBlock({
+                        classes: 'form-inline my-2 my-lg-0',
+                        options: {
+                            inputClasses: 'form-control mr-sm-2',
+                            btnClasses: 'btn btn-outline-success my-2 my-sm-0',
+                        },
+                    }).toHtml(),
+                ],
+            }).toHtml(),
         ],
-    }),
-    new SearchBlock({
-        classes: 'form-inline my-2 my-lg-0',
-        options: {
-            inputClasses: 'form-control mr-sm-2',
-            btnClasses: 'btn btn-outline-success my-2 my-sm-0',
-        },
     }),
     // new NavbarBlock(
     //     classes: 'navbar navbar-expand-lg navbar-dark bg-dark sticky-top',
