@@ -3,6 +3,9 @@ export function ul(items=[], classes='', styles = '') {
     return  `<ul class="${classes}" style="${styles}">${content}</ul>`;
 }
 
+export function img(src='', classes='', alt='', options) {
+    return  `<img src="${src}" width="${options.width}" height="${options.height}" alt="${alt}">`;
+}
 export function link(content='', classes='', href, styles = '') {
     return  `<a href="${href}" class="${classes}">${content}</a>`;
 }
@@ -25,6 +28,14 @@ export function input(inputClasses) {
 
 export function button(btnClasses) {
     return  `<button class="${btnClasses}">Search</button>`;
+}
+
+export function buttonToggler(classes, targetName, content) {
+    return  `
+        <button class="${classes}" type="button" data-toggle="collapse" data-target="#${targetName}" aria-controls="${targetName}" aria-expanded="false" aria-label="Toggle navigation">
+            ${content}
+        </button>
+    `;
 }
 
 export function div(id, items=[], classes='', styles = '') {

@@ -1,6 +1,9 @@
 import {NavbarBlock} from './components/NavbarBlock';
+import {NavbarBrandBlock} from './components/NavbarBrandBlock';
+import {NavbarTogglerBlock} from './components/NavbarTogglerBlock';
 import {NavbarCollapseBlock} from './components/NavbarCollapseBlock';
 import {NavbarNavBlock} from './components/NavbarNavBlock';
+import {ImgBlock} from './components/ImgBlock';
 import {LinkBlock} from './components/LinkBlock';
 import {LinkToModalBlock} from './components/LinkToModalBlock';
 import {SearchBlock} from './components/SearchBlock';
@@ -10,6 +13,25 @@ export const model = [
     new NavbarBlock({
         classes: 'navbar navbar-expand-lg navbar-dark bg-dark sticky-top',
         items: [
+            new NavbarBrandBlock({
+                classes: 'navbar-brand',
+                value: new ImgBlock({
+                    classes: '',
+                    src: 'logo65x55.png',
+                    alt: 'логотип',
+                    options: {
+                        width: '35',
+                        height: '30',
+                    },
+                }).toHtml(),
+            }).toHtml(),
+            new NavbarTogglerBlock({
+                classes: 'navbar-toggler',
+                targetName: 'navbarSupportedContent',
+                options: {
+                    spanClasses: 'navbar-toggler-icon',
+                }
+            }).toHtml(),
             new NavbarCollapseBlock({
                 id: 'navbarSupportedContent',
                 classes: 'collapse navbar-collapse',
